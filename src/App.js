@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Button, Row,Col } from "react-bootstrap";
+import Colors from "./components/Colors";
+import RandomHex from "./utils/RandomHex";
+import { ToastContainer ,toast} from 'react-toastify';
 
 function App() {
+  const [colors,setColors] = useState([]);
+  const createColors = () => {
+    setColors([RandomHex(),RandomHex(),RandomHex(),RandomHex()]);
+    toast.success('Its created !', {
+      position: toast.POSITION.TOP_RIGHT
+  });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ToastContainer />
+    <Colors colors={colors} >
+
+    </Colors>
+    <Row >
+      <Col align='center' className="mt-1 ">
+      <Button variant="success text-center" onClick={createColors}>Make Random Hex</Button>
+      </Col>
+    </Row>
+
+    
+    </>
   );
 }
 
