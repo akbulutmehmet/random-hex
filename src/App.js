@@ -8,13 +8,14 @@ function App() {
   const [colors,setColors] = useState([]);
   const createColors = () => {
     setColors([RandomHex(),RandomHex(),RandomHex(),RandomHex()]);
-    toast.success('Its created !', {
-      position: toast.POSITION.TOP_RIGHT
-  });
+    toast.success('Its created !');
   };
   return (
     <>
-    <ToastContainer />
+    <ToastContainer 
+    position="top-right"
+    autoClose={1000}
+    />
     <Colors colors={colors} >
 
     </Colors>

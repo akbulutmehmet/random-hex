@@ -8,9 +8,7 @@ function Color (props) {
                 <Button 
                 onClick={(e) => {
                     navigator.clipboard.writeText(e.target.value);
-                    toast.success('Copied !', {
-                        position: toast.POSITION.TOP_RIGHT
-                    });
+                    toast.success('Copied !');
                 }}
                 
                 variant="outline-dark" 
